@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{ encore_entry_link_tags('register') }}
+{% endblock %}
+
+        {% block javascripts %}
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+            {{ encore_entry_script_tags('register') }}
+        {% endblock %}
+{% block body %}
+    <div class="container">
+        <h3>Register Yourself</h3>
+        <div class="div">
+            {{ form_start(form, {'action': path('register'), 'method': 'POST'} )}}
+            <div class="form-group">
+                {{ form_widget(form.Email,{'attr':{'class':'form-control','placeholder':'Enter Email'}}) }}
+
+            </div>
+            <div class="form-group">
+{#                {{ form_label(form.password,null,#}
+{#                    {#}
+{#                        'label':'Enter Password',#}
+{#                        'label_attr':{'class':'foo'}#}
+{#                    }) }}#}
+                {{ form_widget(form.password,{'attr':{'class':'form-control','placeholder':'Enter Password'}}) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.address,{'attr':{'class':'form-control','placeholder':'Enter Address'}}) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.country,{'attr':{'class':'form-control','placeholder':'Enter Country'}}) }}
+
+            </div>
+            <div class="form-group">
+
+                {{ form_widget(form.cnic,{'attr':{'class':'form-control','placeholder':'Enter CNIC'}}) }}
+
+            </div>
+            <div class="form-group">
+                {{ form_widget(form.phone_number,{'attr':{'class':'form-control','placeholder':'Enter Phone Number'}}) }}
+
+            </div>
+            <div class="form-group">
+                <button class="btn btn-secondary form-control">REGISTER</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

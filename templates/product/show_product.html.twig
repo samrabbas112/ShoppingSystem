@@ -1,0 +1,53 @@
+{% extends './base.html.twig' %}
+
+
+{% block body %}
+
+    {% include './navbar.html.twig' %}
+    <div class="container">
+        <h3>Show PRODUCT</h3>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Category</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in list %}
+            <tr>
+                <th scope="row">{{data.id}}</th>
+                <td>{{data.product_name}}</td>
+                <td>{{data.product_price}}</td>
+                <td>{{data.Category}}</td>
+            </tr>
+{% endfor %}
+            </tbody>
+        </table>
+{#        <div class="div">#}
+{#            <div id="presidents"></div>#}
+
+{#            <!-- Insert this at the end of your body element, but before the closing tag -->#}
+
+{#        </div>#}
+    </div>
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        {{ encore_entry_link_tags('register') }}
+    {% endblock %}
+    {% block javascripts%}
+        {{ encore_entry_script_tags('register') }}
+{#        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/jq-3.2.1/dt-1.10.16/datatables.min.js"></script>#}
+{#        <script src="{{ asset('bundles/datatables/js/datatables.js') }}"></script>#}
+{#        <script>#}
+{#            $(function() {#}
+{#                $('#presidents').initDataTables({{ datatable_settings(datatable) }});#}
+{#            });#}
+{#        </script>#}
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    {% endblock %}
+{% endblock %}

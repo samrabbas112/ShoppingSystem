@@ -1,0 +1,29 @@
+{% extends './base.html.twig' %}
+{% block stylesheets %}
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    {{ encore_entry_link_tags('register') }}
+{% endblock %}
+{% block javascripts%}
+    {{ encore_entry_script_tags('register') }}
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+{% block body %}
+    {% include './navbar.html.twig' %}
+    <div class="container">
+        <h3>ADD PRODUCT</h3>
+        <div class="div">
+            {{ form_start(form, {'action': path('add_category'), 'method': 'POST'} )}}
+            <div class="form-group">
+                {{ form_widget(form.category_name,{'attr':{'class':'form-control','placeholder':'Enter Category Name'}}) }}
+
+            </div>
+
+
+
+            <div class="form-group">
+                <button class="btn btn-secondary form-control">ADD Category</button>
+            </div>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
