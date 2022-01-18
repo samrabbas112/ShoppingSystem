@@ -43,16 +43,7 @@ class CartController extends AbstractController
         $order=$doctrine->getRepository(Order::class)->gethhjh($order->getId());
 //        dd($order);
         $orderitemm=$doctrine->getRepository(Orderitem::class)->findAllGreaterThanPrice($orderitem->getId());
-//        $product=$doctrine->getRepository(Product::class)->findByid($orderitem->getId());
-//
-//        dd($product);
 
-//        $em=$this->getDoctrine()->getManager();
-//        $query=$em->createQuery(
-//            'SELECT * FROM App\Entity\Product p LEFT JOIN App\Entity\Orderitem'
-//        )
-
-//        dd($orderitemm);
 
         return $this->renderForm('order_history.html.twig', [
             'orderitem'=>$orderitemm,
